@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Joe Black",
+        "access_level": "admin"
+    },
+    {
+        "id": 2,
+        "name": "John Snow",
+        "access_level": "user"
+    },
+    {
+        "id": 3,
+        "name": "Arya Stark",
+        "access_level": "user"
+    },
+    {
+        "id": 5,
+        "name": "Tyrion Lannister",
+        "access_level": "user"
+    }
+]
