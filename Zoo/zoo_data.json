@@ -1,0 +1,49 @@
+{
+    "name": "Central Park Zoo",
+    "animals": [
+        {
+            "type": "Mammal",
+            "name": "Alex",
+            "species": "Lion",
+            "age": 3.0,
+            "fur_color": "ocher"
+        },
+        {
+            "type": "Mammal",
+            "name": "Marty",
+            "species": "Zebra",
+            "age": 2.5,
+            "fur_color": "black and white"
+        },
+        {
+            "type": "Reptile",
+            "name": "Lucy",
+            "species": "Viper",
+            "age": 1.2,
+            "is_venomous": true
+        },
+        {
+            "type": "Bird",
+            "name": "Kowalski",
+            "species": "Penguin",
+            "age": 1.6,
+            "can_fly": false
+        }
+    ],
+    "staff": [
+        {
+            "type": "ZooKeeper",
+            "name": "Vladimir",
+            "experience_years": 36.0
+        },
+        {
+            "type": "Veterinarian",
+            "name": "Helga",
+            "experience_years": 6.5
+        },
+        {
+            "type": "Cashier",
+            "name": "Joe"
+        }
+    ]
+}
