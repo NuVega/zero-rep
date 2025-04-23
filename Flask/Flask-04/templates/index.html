@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать!</h1>
+    <p class="mt-4 fs-3 fw-semibold text-success mb-2">Сегодня: {{ current_date }}</p>
+    <p id="clock" class="fs-3 fw-semibold text-success">{{ current_time }}</p>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        const formatted = now.toLocaleTimeString();
+        document.getElementById("clock").textContent = formatted;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock(); // запустить сразу
+    </script>
+{% endblock %}
