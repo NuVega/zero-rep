@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточки российских актеров</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .actor-card {
+            width: 300px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .actor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .actor-card:hover::before {
+            opacity: 1;
+        }
+
+        .actor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .actor-photo {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-bottom: 5px solid #ff9a9e;
+            transition: all 0.3s ease;
+        }
+
+        .actor-card:hover .actor-photo {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .actor-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .actor-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .actor-card:hover .actor-name {
+            color: #ff6b6b;
+        }
+
+        .actor-detail {
+            font-size: 16px;
+            color: #666;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .actor-detail i {
+            margin-right: 8px;
+            color: #ff9a9e;
+        }
+
+        .card-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 154, 158, 0.2);
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            top: -30px;
+            right: -30px;
+        }
+
+        .decoration-2 {
+            bottom: -20px;
+            left: -20px;
+            width: 80px;
+            height: 80px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .actor-card:hover {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .actor-bio {
+            font-size: 14px;
+            color: #555;
+            margin-top: 15px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Карточка 1 - Михаил Абаджян -->
+    <div class="actor-card">
+        <div class="card-decoration decoration-1"></div>
+        <div class="card-decoration decoration-2"></div>
+        <img src="https://www.kino-teatr.ru/acter/foto/ros/17141.jpg" alt="Михаил Абаджян" class="actor-photo">
+        <div class="actor-info">
+            <h2 class="actor-name">Михаил Абаджян</h2>
+            <div class="actor-detail">
+                <i>🎭</i> Актер
+            </div>
+            <div class="actor-detail">
+                <i>🎂</i> Дата рождения: 21 ноября 1962
+            </div>
+            <div class="actor-detail">
+                <i>🎓</i> ВГИК (мастерская А.В.Баталова)
+            </div>
+            <div class="actor-bio">
+                Окончил ВГИК в 1991 году. Известен по роли в сериале "Товарищи полицейские".
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 2 - Саят Абаджян -->
+    <div class="actor-card">
+        <div class="card-decoration decoration-1"></div>
+        <div class="card-decoration decoration-2"></div>
+        <img src="https://www.kino-teatr.ru/acter/foto/ros/27698.jpg" alt="Саят Абаджян" class="actor-photo">
+        <div class="actor-info">
+            <h2 class="actor-name">Саят Абаджян</h2>
+            <div class="actor-detail">
+                <i>🎭</i> Актер
+            </div>
+            <div class="actor-detail">
+                <i>🎂</i> Дата рождения: 1 декабря 1970
+            </div>
+            <div class="actor-detail">
+                <i>🎓</i> ВГИК (мастерская А.Б.Джигарханяна)
+            </div>
+            <div class="actor-bio">
+                Окончил ВГИК в 1995 году и актёрско-режиссёрские курсы при Фонде им. Р.А.Быкова в 1998 году.
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 3 - Наталья Абаимова -->
+    <div class="actor-card">
+        <div class="card-decoration decoration-1"></div>
+        <div class="card-decoration decoration-2"></div>
+        <img src="https://www.kino-teatr.ru/acter/foto/ros/573827.jpg" alt="Наталья Абаимова" class="actor-photo">
+        <div class="actor-info">
+            <h2 class="actor-name">Наталья Абаимова</h2>
+            <div class="actor-detail">
+                <i>🎭</i> Актриса, певица
+            </div>
+            <div class="actor-detail">
+                <i>🎂</i> Дата рождения: 7 января 1971
+            </div>
+            <div class="actor-detail">
+                <i>🏙️</i> Родилась в Ставрополе
+            </div>
+            <div class="actor-bio">
+                Заслуженная артистка Кубани. Окончила Ставропольское училище культуры и искусств, с 1996 года - солистка-вокалистка Краснодарского музыкального театра.
+            </div>
+        </div>
+    </div>
+
+    <!-- Карточка 4 - Александр Абдулов -->
+    <div class="actor-card">
+        <div class="card-decoration decoration-1"></div>
+        <div class="card-decoration decoration-2"></div>
+        <img src="https://www.kino-teatr.ru/acter/foto/ros/12.jpg" alt="Александр Абдулов" class="actor-photo">
+        <div class="actor-info">
+            <h2 class="actor-name">Александр Абдулов</h2>
+            <div class="actor-detail">
+                <i>🎭</i> Народный артист РСФСР
+            </div>
+            <div class="actor-detail">
+                <i>🎂</i> Дата рождения: 29 мая 1953
+            </div>
+            <div class="actor-detail">
+                <i>🏙️</i> Родился в Тобольске
+            </div>
+            <div class="actor-bio">
+                Легендарный советский и российский актер театра и кино. Снимался в таких фильмах как "Обыкновенное чудо", "Тот самый Мюнхгаузен".
+            </div>
+        </div>
+    </div>
+</body>
+</html>
