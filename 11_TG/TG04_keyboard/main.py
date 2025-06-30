@@ -1,29 +1,29 @@
-import telebot
-from telebot.types import ReplyKeyboardMarkup, KeyboardButton, Message
-import os
+import asyncio
+from aiogram import Bot, Dispatcher
+from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.enums import ParseMode
+from aiogram.client.default import DefaultBotProperties
 from dotenv import load_dotenv
+import os
+
+from handlers import start, links, dynamic
 
 load_dotenv()
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = Bot(
+    token=BOT_TOKEN,
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
+dp = Dispatcher(storage=MemoryStorage())
 
+dp.include_router(start.router)
+dp.include_router(links.router)
+dp.include_router(dynamic.router)
 
-@bot.message_handler(commands=['start'])
-def start(message: Message):
-    markup = ReplyKeyboardMarkup(resize_keyboard=True)
-    btn_hello = KeyboardButton("Привет")
-    btn_bye = KeyboardButton("Пока")
-    markup.add(btn_hello, btn_bye)
-
-    bot.send_message(message.chat.id, f"Привет, {message.from_user.first_name}! Выбери опцию:", reply_markup=markup)
-
-@bot.message_handler(func=lambda message: True)
-def handle_message(message: Message):
-    if message.text == "Привет":
-        bot.send_message(message.chat.id, f"Привет, {message.from_user.first_name}!")
-    elif message.text == "Пока":
-        bot.send_message(message.chat.id, f"До свидания, {message.from_user.first_name}!")
-
+async def main():
+    await bot.delete_webhook(drop_pending_updates=True)
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    bot.polling(none_stop=True)
+    asyncio.run(main())
